@@ -2,6 +2,8 @@ package com.example.android.customfancontroller
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+/*
+RIASSUNTO DEI COMPITI
 
 //TODO - 1 Override del metodo OnSizeChanged
 /*
@@ -61,7 +63,7 @@ for (i in FanSpeed.values()) {
        android:layout_marginRight="@dimen/default_margin"
        android:layout_marginTop="@dimen/default_margin" />
  */
-
+*/
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
