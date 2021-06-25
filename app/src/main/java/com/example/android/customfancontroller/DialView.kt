@@ -99,6 +99,9 @@ class DialView @JvmOverloads constructor(
         textSize = 55.0f
         typeface = Typeface.create( "", Typeface.BOLD)
     }
+    override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
+        radius = (min(width, height) / 2.0 * 0.8).toFloat()
+    }
 
     private fun PointF.computeXYForSpeed(pos: FanSpeed, radius: Float) {
         // Angles are in radians.
