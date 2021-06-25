@@ -27,6 +27,9 @@ import kotlin.math.sin
     init {
     isClickable = true
     }
+
+    TODO NB: init   inizia con la lettera minuscola
+        isClickable ha il simbolo di assegnamento
  */
 
 /* TODO - 3 Invoca onClickListener della View
@@ -38,6 +41,8 @@ import kotlin.math.sin
         invalidate()
         return true
         }
+        nb: Al di fuori del blocco init!!!! subito dopo!!!
+
  */
 
 /*TODO - A che cosa serve Invalidate()?
@@ -49,6 +54,13 @@ private enum class FanSpeed(val label: Int) {
     LOW(R.string.fan_low),
     MEDIUM(R.string.fan_medium),
     HIGH(R.string.fan_high);
+
+    fun next() = when(this){
+        OFF -> LOW
+        LOW -> MEDIUM
+        MEDIUM -> HIGH
+        HIGH -> OFF
+    }
 }
 
 private const val RADIUS_OFFSET_LABEL = 30
@@ -69,6 +81,19 @@ class DialView @JvmOverloads constructor(
         textSize = 55.0f
         typeface = Typeface.create( "", Typeface.BOLD)
     }
+
+    init {
+        isClickable = true
+    }
+
+    override fun performClick(): Boolean {
+        if (super.performClick()) return true
+        fanSpeed = fanSpeed.next()
+        contentDescription = resources.getString(fanSpeed.label)
+        invalidate()
+        return true
+    }
+
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
         radius = (min(width, height) / 2.0 * 0.8).toFloat()
     }
