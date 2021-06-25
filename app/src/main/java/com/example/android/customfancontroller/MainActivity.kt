@@ -2,7 +2,7 @@ package com.example.android.customfancontroller
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-//TODO 1 - Costruisci una classe che estende View e di conseguenza importa l'elemento View
+//TODO 1 - Costruisci una classe ("DialView") che estende View e di conseguenza importa l'elemento View
 //TODO 2 - Aggiungi il costruttore della View usando '@JvmOverloads'
 //Approfondimento qui: https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-jvm-overloads/
 //Altro approfondimento: https://developer.android.com/training/custom-views/index.html
