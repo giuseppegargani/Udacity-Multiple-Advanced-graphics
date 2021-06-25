@@ -12,41 +12,49 @@ import kotlin.math.sin
 //RIASSUNTO DEI TASKS
 //Si può passare chiudere i vari step e passare il cursore per un suggerimento veloce
 
-/*TODO - 1 Costruisci una funzione che quando invocata cambia il valore presente del controller al successivo
-   Dentro alla classe di enumerazione aggiungi una funzione di estensione Next()
-    fun next() = when (this) {
-       OFF -> LOW
-       LOW -> MEDIUM
-       MEDIUM -> HIGH
-       HIGH -> OFF
-   }
+/* TODO - 1 Crea un file "attrs.xml" di attributi custom per la customView (DialView) di tre colori diversi per le tre posizioni ventilatore
+    <?xml version="1.0" encoding="utf-8"?>
+    <resources>
+       <declare-styleable name="DialView">
+           <attr name="fanColor1" format="color" />
+           <attr name="fanColor2" format="color" />
+           <attr name="fanColor3" format="color" />
+       </declare-styleable>
+    </resources>
+ */
+
+/* TODO - 2 Aggiungi gli attributi nella View DialView (in ViewGroup di Activity_Main)
+    app:fanColor1="#FFEB3B"
+    app:fanColor2="#CDDC39"
+    app:fanColor3="#009688"
+ */
+
+/* TODO - 3 Dichiara ed inizializza le variabili (fanSpeedLowColor, fanSpeedMediumColor, ...) in DialView.
+    private var fanSpeedLowColor = 0
+    private var fanSpeedMediumColor = 0
+    private var fanSeedMaxColor = 0
+    ____________________________________
+    Sono private (interne alla classe)
+    ____________________________________
+ */
+
+/* TODO - 4 Assegna gli attributi colore alle variabili precedenti
+    Si deve fare dentro il blocco init e con la funzione di estensione withStyledAttributes
+    context.withStyledAttributes(attrs, R.styleable.DialView) {
+    fanSpeedLowColor = getColor(R.styleable.DialView_fanColor1, 0)
+    fanSpeedMediumColor = getColor(R.styleable.DialView_fanColor2, 0)
+    fanSeedMaxColor = getColor(R.styleable.DialView_fanColor3, 0)
+    }
+    withStyledAttributes appartiene alla libreria android-ktx
 */
 
-/* TODO - 2 Abilita quella View ad accettare input utente all'avvio (momento della inizializzazione)
-    Prima di onSizeChanged() aggiungi un blocco Init{} in modo da abilitare quella view ad accettare input utente
-    init {
-    isClickable = true
-    }
-
-    TODO NB: init   inizia con la lettera minuscola
-        isClickable ha il simbolo di assegnamento
- */
-
-/* TODO - 3 Invoca onClickListener della View
-    Si fa override di PerformClick():
-    override fun performClick(): Boolean {
-    if (super.performClick()) return true
-        fanSpeed = fanSpeed.next()
-        contentDescription = resources.getString(fanSpeed.label)
-        invalidate()
-        return true
-        }
-        nb: Al di fuori del blocco init!!!! subito dopo!!!
-
- */
-
-/*TODO - A che cosa serve Invalidate()?
-    Costringe a rilanciare la View (la renderizzazione della View)
+/* TODO - 5 In onDraw() attribuisci il colore sulla base della velocità
+    paint.color = when (fanSpeed) {
+    FanSpeed.OFF -> Color.GRAY
+    FanSpeed.LOW -> fanSpeedLowColor
+    FanSpeed.MEDIUM -> fanSpeedMediumColor
+    FanSpeed.HIGH -> fanSeedMaxColor
+    } as Int
  */
 
 private enum class FanSpeed(val label: Int) {
