@@ -9,6 +9,41 @@ import kotlin.math.cos
 import kotlin.math.min
 import kotlin.math.sin
 
+//RIASSUNTO DEI TASKS
+//Si può passare chiudere i vari step e passare il cursore per un suggerimento veloce
+
+/*TODO - 1 Costruisci una funzione che quando invocata cambia il valore presente del controller al successivo
+   Dentro alla classe di enumerazione aggiungi una funzione di estensione Next()
+    fun next() = when (this) {
+       OFF -> LOW
+       LOW -> MEDIUM
+       MEDIUM -> HIGH
+       HIGH -> OFF
+   }
+*/
+
+/* TODO - 2 Abilita quella View ad accettare input utente all'avvio (momento della inizializzazione)
+    Prima di onSizeChanged() aggiungi un blocco Init{} in modo da abilitare quella view ad accettare input utente
+    init {
+    isClickable = true
+    }
+ */
+
+/* TODO - 3 Invoca onClickListener della View
+    Si fa override di PerformClick():
+    override fun performClick(): Boolean {
+    if (super.performClick()) return true
+        fanSpeed = fanSpeed.next()
+        contentDescription = resources.getString(fanSpeed.label)
+        invalidate()
+        return true
+        }
+ */
+
+/*TODO - A che cosa serve Invalidate()?
+    Costringe a rilanciare la View (la renderizzazione della View)
+ */
+
 private enum class FanSpeed(val label: Int) {
     OFF(R.string.fan_off),
     LOW(R.string.fan_low),
